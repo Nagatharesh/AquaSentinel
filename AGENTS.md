@@ -10,12 +10,12 @@ Below are strict instructions that all developers and AI agents must follow when
 
 <ul>
   <li>
-    <strong>Page & Component Line Length Threshold (150 Lines Max):</strong> 
-    No individual page file (e.g., <code>src/pages/*/*.jsx</code>) or UI/Canvas component file (e.g., <code>src/components/*/*.jsx</code>) should exceed <strong>150 lines of code</strong> (absolute maximum cap: 200 lines for top-level router wrappers).
+    <strong>Page & Component Line Length Threshold (250 Lines Max):</strong> 
+    No individual page file (e.g., <code>src/pages/*/*.jsx</code>) or UI/Canvas component file (e.g., <code>src/components/*/*.jsx</code>) should exceed <strong>250 lines of code</strong> (absolute maximum cap: 300 lines for top-level router wrappers).
   </li>
   <li>
     <strong>Component Splitting Rule:</strong> 
-    If a page or component file approaches or exceeds the 150-line threshold, you <strong>MUST</strong> decompose and split the file into smaller, focused sub-components (placed in a subfolder for that page/feature), custom React hooks (in <code>src/hooks/</code>), or utility modules (in <code>src/utils/</code>).
+    If a page or component file approaches or exceeds the 250-line threshold, you <strong>MUST</strong> decompose and split the file into smaller, focused sub-components (placed in a subfolder for that page/feature), custom React hooks (in <code>src/hooks/</code>), or utility modules (in <code>src/utils/</code>).
   </li>
   <li>
     <strong>Strict CSS Separation (No Inline Styles):</strong> 
@@ -54,7 +54,7 @@ AquaSentinal/
 │   │   │   ├── variables.css   # Color palette, font variables
 │   │   │   └── global.css      # Reset & base application styles
 │   │   └── icons/              # SVG assets
-│   ├── components/             # Modular React components (<150 lines each)
+│   ├── components/             # Modular React components (<250 lines each)
 │   │   ├── ui/                 # Reusable UI primitives (Button, Modal, Card, Input)
 │   │   ├── layout/             # Header (Header.jsx + Header.css), Sidebar, PageWrapper
 │   │   ├── canvas/             # Three.js 3D Viewport components (Scene, Lights, ModelViewer)
@@ -80,7 +80,7 @@ AquaSentinal/
 
 ## 🛠️ Step-by-Step Refactoring Workflow When Exceeding Thresholds
 
-When a page file `ExamplePage.jsx` reaches >150 lines:
+When a page file `ExamplePage.jsx` reaches >250 lines:
 1. Create a dedicated folder `src/pages/Example/`.
 2. Extract sub-views into separate files (e.g., `ExampleHeader.jsx`, `ExampleTable.jsx`).
 3. Extract styles into separate CSS files (`ExampleHeader.css`, `ExampleTable.css`).

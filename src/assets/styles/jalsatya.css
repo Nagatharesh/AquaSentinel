@@ -1,0 +1,44 @@
+:root {
+  --ink: #0E2A33;
+  --ink-2: #2A4A54;
+  --ink-3: #5B7781;
+  --paper: #FFFFFF;
+  --wash: #EDF1F2;
+  --line: #D3DCDF;
+  --water: #1C6B7A;
+  --water-soft: #E2F0F2;
+  --amber: #B4690E;
+  --amber-soft: #FBF0DE;
+  --red: #A32B22;
+  --red-soft: #FBE9E7;
+  --green: #2E6B4F;
+  --green-soft: #E4F1EA;
+  --shell: #0E2A33;
+  --sb-w: 252px;
+  --sb-w-collapsed: 62px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #E6EEF0;
+    --ink-2: #B6C7CC;
+    --ink-3: #8AA0A7;
+    --paper: #0F1E23;
+    --wash: #16292F;
+    --line: #254048;
+    --water: #57B3C4;
+    --water-soft: #15333A;
+    --amber: #D89A45;
+    --amber-soft: #33281A;
+    --red: #E0736A;
+    --red-soft: #331C1A;
+    --green: #6FBD95;
+    --green-soft: #163024;
+    --shell: #081B21;
+  }
+}
+
+.mono {
+  font-family: 'Roboto Mono', ui-monospace, Menlo, monospace;
+  font-variant-numeric: tabular-nums;
+}

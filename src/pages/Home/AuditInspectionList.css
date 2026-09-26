@@ -1,0 +1,139 @@
+.audit-section {
+  padding: 70px 24px;
+  background-color: #f1f5f9;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.audit-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.audit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.audit-title-box {
+  max-width: 650px;
+}
+
+.audit-tag {
+  color: #dc2626;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.audit-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.audit-subtitle {
+  font-size: 15px;
+  color: #475569;
+}
+
+.audit-badge-pill {
+  padding: 8px 18px;
+  border-radius: 50px;
+  background: rgba(2, 132, 199, 0.1);
+  border: 1px solid rgba(2, 132, 199, 0.3);
+  color: #0284c7;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  background: #ffffff;
+  box-shadow: var(--shadow-md);
+}
+
+.audit-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.audit-table th {
+  background-color: #f8fafc;
+  color: #475569;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 14px 18px;
+  border-bottom: 2px solid var(--border-color);
+  font-weight: 700;
+}
+
+.audit-table td {
+  padding: 16px 18px;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 14px;
+  vertical-align: top;
+}
+
+.audit-table tr:hover {
+  background-color: #f8fafc;
+}
+
+.plant-name {
+  font-weight: 700;
+  color: #0f172a;
+  display: block;
+}
+
+.plant-location {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.risk-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.risk-high {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.anomaly-tag {
+  color: #d97706;
+  font-weight: 700;
+}
+
+.evidence-text {
+  color: #334155;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.action-box {
+  background: #e0f2fe;
+  border-left: 3px solid #0284c7;
+  padding: 8px 12px;
+  border-radius: 0 6px 6px 0;
+  font-size: 12px;
+  color: #0369a1;
+  font-weight: 600;
+}

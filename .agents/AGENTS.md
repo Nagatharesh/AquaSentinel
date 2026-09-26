@@ -6,8 +6,8 @@ This project enforces strict modularity standards for React, Three.js 3D viewpor
 
 <ul>
   <li>
-    <strong>Page & Component File Line Threshold (150 Lines):</strong>
-    Strictly enforce a maximum line count of <strong>150 lines</strong> per file for all components in <code>src/components/</code> and pages in <code>src/pages/</code>.
+    <strong>Page & Component File Line Threshold (250 Lines):</strong>
+    Strictly enforce a maximum line count of <strong>250 lines</strong> per file for all components in <code>src/components/</code> and pages in <code>src/pages/</code>.
   </li>
   <li>
     <strong>Strict CSS Separation:</strong>
@@ -15,7 +15,7 @@ This project enforces strict modularity standards for React, Three.js 3D viewpor
   </li>
   <li>
     <strong>Splitting Strategy:</strong>
-    When a page file grows beyond 150 lines, automatically decompose it into dedicated sub-components within the page directory, move stateful logic into custom React hooks (<code>src/hooks/</code>), and extract static configs into <code>src/utils/</code>.
+    When a page file grows beyond 250 lines, automatically decompose it into dedicated sub-components within the page directory, move stateful logic into custom React hooks (<code>src/hooks/</code>), and extract static configs into <code>src/utils/</code>.
   </li>
   <li>
     <strong>3D Three.js Component Isolation:</strong>

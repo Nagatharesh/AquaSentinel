@@ -1,0 +1,41 @@
+:root {
+  /* Harmonious Light Theme Design Tokens Matching Landing Page */
+  --ink: #0f172a;
+  --ink-2: #334155;
+  --ink-3: #64748b;
+  --paper: #ffffff;
+  --wash: #f8fafc;
+  --line: #e2e8f0;
+  --water: #0284c7;
+  --water-soft: #e0f2fe;
+  --amber: #b45309;
+  --amber-soft: #fef3c7;
+  --red: #dc2626;
+  --red-soft: #fef2f2;
+  --green: #16a34a;
+  --green-soft: #dcfce7;
+  --shell: #0b111e;
+  --sb-w: 252px;
+  --sb-w-collapsed: 62px;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--wash) !important;
+  color: var(--ink) !important;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.mono {
+  font-family: 'Roboto Mono', ui-monospace, Menlo, monospace;
+  font-variant-numeric: tabular-nums;
+}

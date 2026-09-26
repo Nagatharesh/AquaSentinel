@@ -1,0 +1,97 @@
+.govt-login-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #0a0d14;
+}
+
+.govt-hero-section {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  background-image: linear-gradient(
+      180deg,
+      rgba(10, 13, 20, 0.78) 0%,
+      rgba(10, 13, 20, 0.93) 75%,
+      #0a0d14 100%
+    ),
+    url('/images/user_industrial_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.portal-welcome-box {
+  max-width: 540px;
+  margin-right: 48px;
+  color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .govt-hero-section {
+    flex-direction: column;
+    padding: 40px 16px;
+  }
+  .portal-welcome-box {
+    margin-right: 0;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+}
+
+.portal-emblem-seal {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ff9933;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.portal-main-heading {
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 18px;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+.portal-main-heading span {
+  color: var(--accent-cyan);
+}
+
+.portal-desc-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin-bottom: 28px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.stats-bar-mini {
+  display: flex;
+  gap: 20px;
+}
+
+.mini-stat {
+  background: rgba(18, 24, 36, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 12px 18px;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.mini-stat-num {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--accent-cyan);
+}
+
+.mini-stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+}

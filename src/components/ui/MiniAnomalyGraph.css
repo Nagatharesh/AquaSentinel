@@ -1,0 +1,12 @@
+.mini-graph-wrapper {
+  width: 140px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.mini-graph-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}

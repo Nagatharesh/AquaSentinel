@@ -1,0 +1,41 @@
+.app {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+.main {
+  flex: 1;
+  margin-left: var(--sb-w);
+  transition: margin-left 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 0;
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+body.collapsed .main {
+  margin-left: var(--sb-w-collapsed);
+}
+
+@media (max-width: 720px) {
+  .sidebar {
+    width: var(--sb-w-collapsed);
+  }
+  .sidebar .lbl {
+    opacity: 0;
+    width: 0;
+  }
+  .main {
+    margin-left: var(--sb-w-collapsed);
+  }
+  body.collapsed .sidebar {
+    width: var(--sb-w);
+  }
+  body.collapsed .sidebar .lbl {
+    opacity: 1;
+    width: auto;
+  }
+  body.collapsed .main {
+    margin-left: var(--sb-w-collapsed);
+  }
+}

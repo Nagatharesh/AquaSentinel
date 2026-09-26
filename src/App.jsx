@@ -1,23 +1,16 @@
 import React, { useState } from 'react';
-import { Header } from './components/layout/Header';
-import { HomePage } from './pages/Home/HomePage';
-import { ViewerPage } from './pages/Viewer/ViewerPage';
-import { DbPage } from './pages/Database/DbPage';
+import { AquaLandingPage } from './pages/Home/AquaLandingPage';
+import { AquaConsoleLayout } from './pages/Console/AquaConsoleLayout';
 import './assets/styles/global.css';
 
 export function App() {
-  const [activeTab, setActiveTab] = useState('home');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  return (
-    <div className="app-main">
-      <Header activeTab={activeTab} setActiveTab={setActiveTab} />
-      <main>
-        {activeTab === 'home' && <HomePage setActiveTab={setActiveTab} />}
-        {activeTab === 'viewer' && <ViewerPage />}
-        {activeTab === 'database' && <DbPage />}
-      </main>
-    </div>
-  );
+  if (!isAuthenticated) {
+    return <AquaLandingPage onLoginSuccess={() => setIsAuthenticated(true)} />;
+  }
+
+  return <AquaConsoleLayout />;
 }
 
 export default App;

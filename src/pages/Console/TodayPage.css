@@ -1,0 +1,163 @@
+.wrap {
+  padding: 28px 32px 60px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.kpi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.kpi .cell {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+  transition: transform 0.2s ease;
+}
+
+.kpi .cell:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.08);
+}
+
+.kpi .n {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #0f172a;
+}
+
+.kpi .k {
+  font-size: 13px;
+  color: #475569;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.panel-h {
+  padding: 16px 22px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.panel-h h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.panel-h .spacer {
+  flex: 1;
+}
+
+.muted {
+  color: #64748b;
+  font-size: 13.5px;
+}
+
+.two {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 940px) {
+  .two {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Enhanced "This Month" District Audit Card Styles */
+.month-audit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.month-count-badge {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0284c7;
+  background: #e0f2fe;
+  padding: 4px 12px;
+  border-radius: 50px;
+}
+
+.stacked-bar-enhanced {
+  height: 12px;
+  border-radius: 6px;
+  background: #e2e8f0;
+  overflow: hidden;
+  display: flex;
+  margin-bottom: 18px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.stacked-bar-enhanced i {
+  display: block;
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+.month-breakdown-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.month-breakdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.month-breakdown-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.month-breakdown-val {
+  font-weight: 800;
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.month-breakdown-pct {
+  font-size: 11px;
+  color: #64748b;
+  margin-left: 4px;
+}
+
+.cant-check-info-box {
+  background: #f8fafc;
+  border-left: 3px solid #64748b;
+  padding: 12px 14px;
+  border-radius: 0 8px 8px 0;
+  font-size: 12.5px;
+  color: #334155;
+  line-height: 1.5;
+}
