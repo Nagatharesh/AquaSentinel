@@ -1,0 +1,16 @@
+-- SQLite Schema DDL Definition for AquaSentinal
+
+CREATE TABLE IF NOT EXISTS models_metadata (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  file_path TEXT NOT NULL,
+  format TEXT NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS sensor_logs (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  sensor_name TEXT NOT NULL,
+  value REAL NOT NULL,
+  timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+);

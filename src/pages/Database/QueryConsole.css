@@ -1,0 +1,54 @@
+.query-console-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.query-input-group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.query-textarea {
+  flex: 1;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  padding: 12px;
+  font-family: monospace;
+  font-size: 14px;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.query-execute-btn {
+  padding: 12px 20px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--bg-primary);
+  font-weight: 600;
+  cursor: pointer;
+  height: fit-content;
+}
+
+.query-results-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+.query-results-table th,
+.query-results-table td {
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.query-results-table th {
+  background-color: var(--bg-card);
+  color: var(--accent-cyan);
+}

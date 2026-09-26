@@ -1,0 +1,29 @@
+.model-toolbar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+  background-color: rgba(18, 24, 36, 0.85);
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+}
+
+.toolbar-btn {
+  background: none;
+  border: none;
+  color: var(--accent-cyan);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.toolbar-btn:hover {
+  background-color: rgba(0, 242, 254, 0.1);
+}

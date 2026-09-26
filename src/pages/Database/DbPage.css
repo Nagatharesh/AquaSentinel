@@ -1,0 +1,20 @@
+.db-page-container {
+  padding: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.db-page-header {
+  margin-bottom: 24px;
+}
+
+.db-page-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.db-page-subtitle {
+  color: var(--text-muted);
+}
