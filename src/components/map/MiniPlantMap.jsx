@@ -9,7 +9,30 @@ import './MapcnMap.css';
 
 config.WORKER_URL = maplibreWorkerUrl;
 
-const MAPCN_DARK_VECTOR_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json';
+const DARK_MAP_STYLE = {
+  version: 8,
+  sources: {
+    'carto-dark-source': {
+      type: 'raster',
+      tiles: [
+        'https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
+        'https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
+        'https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
+      ],
+      tileSize: 256,
+      attribution: '&copy; OpenStreetMap &copy; CARTO'
+    }
+  },
+  layers: [
+    {
+      id: 'carto-dark-layer',
+      type: 'raster',
+      source: 'carto-dark-source',
+      minzoom: 0,
+      maxzoom: 22
+    }
+  ]
+};
 
 export function MiniPlantMap({ plant }) {
   const containerRef = useRef(null);
@@ -22,7 +45,7 @@ export function MiniPlantMap({ plant }) {
 
     const map = new maplibregl.Map({
       container: containerRef.current,
-      style: MAPCN_DARK_VECTOR_STYLE,
+      style: DARK_MAP_STYLE,
       center: [loc.lng, loc.lat],
       zoom: 12,
       pitch: 20,
@@ -30,7 +53,10 @@ export function MiniPlantMap({ plant }) {
       attributionControl: false
     });
 
-    // Custom mini marker
+    map.on('error', (e) => {
+      console.warn('MiniMap notice:', e);
+    });
+
     const el = document.createElement('div');
     const bg = loc.band === 'red' ? '#ef4444' : loc.band === 'amber' ? '#f59e0b' : '#10b981';
     el.innerHTML = `<div style="width: 16px; height: 16px; background: ${bg}; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 10px ${bg};"></div>`;

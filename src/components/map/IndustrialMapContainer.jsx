@@ -12,8 +12,31 @@ import './PlantMarkerGroup.css';
 // Configure Web Worker URL for MapLibre GL in Vite
 config.WORKER_URL = maplibreWorkerUrl;
 
-// CartoDB Dark Matter GL Vector Style
-const MAPCN_DARK_VECTOR_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json';
+// Fail-proof Vercel-compatible Dark Map Style definition
+const DARK_MAP_STYLE = {
+  version: 8,
+  sources: {
+    'carto-dark-source': {
+      type: 'raster',
+      tiles: [
+        'https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
+        'https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
+        'https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
+      ],
+      tileSize: 256,
+      attribution: '&copy; OpenStreetMap &copy; CARTO'
+    }
+  },
+  layers: [
+    {
+      id: 'carto-dark-layer',
+      type: 'raster',
+      source: 'carto-dark-source',
+      minzoom: 0,
+      maxzoom: 22
+    }
+  ]
+};
 
 export function IndustrialMapContainer({
   plants = [],
@@ -26,7 +49,7 @@ export function IndustrialMapContainer({
   const mapRef = useRef(null);
   const markersRef = useRef([]);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
-  const [activeMapMode, setActiveMapMode] = useState('vector'); // 'vector', 'satellite', 'spectral'
+  const [activeMapMode, setActiveMapMode] = useState('vector');
 
   // Initialize MapLibre GL map instance
   useEffect(() => {
@@ -34,7 +57,7 @@ export function IndustrialMapContainer({
 
     const map = new maplibregl.Map({
       container: mapContainerRef.current,
-      style: MAPCN_DARK_VECTOR_STYLE,
+      style: DARK_MAP_STYLE,
       center: [TN_MAP_CENTER.lng, TN_MAP_CENTER.lat],
       zoom: TN_MAP_CENTER.zoom,
       pitch: 30,
@@ -43,6 +66,11 @@ export function IndustrialMapContainer({
 
     map.addControl(new maplibregl.NavigationControl(), 'bottom-right');
     mapRef.current = map;
+
+    // Suppress unhandled tile errors on Vercel
+    map.on('error', (e) => {
+      console.warn('MapLibre GL tile notice:', e);
+    });
 
     const onStyleLoad = () => setIsMapLoaded(true);
     map.on('load', onStyleLoad);
