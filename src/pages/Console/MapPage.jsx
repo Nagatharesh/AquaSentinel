@@ -1,11 +1,13 @@
 import React, { useState, useMemo } from 'react';
-import { Map, Layers } from 'lucide-react';
+import { Map, Layers, Satellite } from 'lucide-react';
 import { PLANTS_DATA } from '../../data/aquasentinalData';
 import { EXTENDED_PLANTS_DATA } from '../../data/extendedPlantsData';
 import { enrichPlantWithCoordinates } from '../../utils/plantCoordinates';
 import { IndustrialMapContainer } from '../../components/map/IndustrialMapContainer';
 import { MapFilterBar } from '../../components/map/MapFilterBar';
 import { MapLegend } from '../../components/map/MapLegend';
+import { SatelliteExplainDrawer } from '../../components/satellite/SatelliteExplainDrawer';
+import { getSatelliteAnomalyForPlant } from '../../data/satelliteAnomaliesData';
 import './MapPage.css';
 
 export function MapPage({ onOpenPlant }) {
@@ -13,6 +15,7 @@ export function MapPage({ onOpenPlant }) {
   const [selectedBand, setSelectedBand] = useState('all');
   const [selectedTown, setSelectedTown] = useState('all');
   const [selectedSector, setSelectedSector] = useState('all');
+  const [activeSatelliteAnomaly, setActiveSatelliteAnomaly] = useState(null);
 
   // Consolidate & enrich plant data with real Tamil Nadu coordinates
   const allPlants = useMemo(() => {
@@ -53,6 +56,11 @@ export function MapPage({ onOpenPlant }) {
     });
   }, [allPlants, searchTerm, selectedBand, selectedTown, selectedSector]);
 
+  const handleOpenSatelliteDrawer = (plantId) => {
+    const anomaly = getSatelliteAnomalyForPlant(plantId);
+    setActiveSatelliteAnomaly(anomaly);
+  };
+
   return (
     <div className="map-page-container">
       <div className="map-page-header-meta">
@@ -60,7 +68,7 @@ export function MapPage({ onOpenPlant }) {
           <Map size={13} /> Regional GIS Surveillance Grid (Tamil Nadu Industrial Corridors)
         </div>
         <div className="map-page-title-badge">
-          <Layers size={13} /> Active Basemap: mapcn (MapLibre GL GPU Vector Engine)
+          <Satellite size={13} /> Sentinel-2 & Esri Real Satellite Engine Active
         </div>
       </div>
 
@@ -83,10 +91,18 @@ export function MapPage({ onOpenPlant }) {
         <IndustrialMapContainer
           plants={filteredPlants}
           onSelectPlant={onOpenPlant}
+          onOpenSatelliteDrawer={handleOpenSatelliteDrawer}
           height="100%"
         />
         <MapLegend />
       </div>
+
+      {activeSatelliteAnomaly && (
+        <SatelliteExplainDrawer
+          anomalyData={activeSatelliteAnomaly}
+          onClose={() => setActiveSatelliteAnomaly(null)}
+        />
+      )}
     </div>
   );
 }

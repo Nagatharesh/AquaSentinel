@@ -3,6 +3,8 @@ import * as maplibregl from 'maplibre-gl';
 import { config } from 'maplibre-gl';
 import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url';
 import { TN_MAP_CENTER } from '../../utils/plantCoordinates';
+import { SatelliteLayerControl } from './SatelliteLayerControl';
+import { useSatelliteImagery } from '../../hooks/useSatelliteImagery';
 import './IndustrialMapContainer.css';
 import './MapcnMap.css';
 import './PlantMarkerGroup.css';
@@ -10,21 +12,23 @@ import './PlantMarkerGroup.css';
 // Configure Web Worker URL for MapLibre GL in Vite
 config.WORKER_URL = maplibreWorkerUrl;
 
-// CartoDB Dark Matter GL Vector Style (100% Free Vector Map, Zero Rate Limits, Ultra Smooth GPU WebGL)
+// CartoDB Dark Matter GL Vector Style
 const MAPCN_DARK_VECTOR_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json';
 
 export function IndustrialMapContainer({
   plants = [],
   selectedPlantId = null,
   onSelectPlant = () => {},
+  onOpenSatelliteDrawer = () => {},
   height = '100%'
 }) {
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
   const markersRef = useRef([]);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
+  const [activeMapMode, setActiveMapMode] = useState('vector'); // 'vector', 'satellite', 'spectral'
 
-  // Initialize MapLibre GL map instance (mapcn pattern)
+  // Initialize MapLibre GL map instance
   useEffect(() => {
     if (!mapContainerRef.current) return;
 
@@ -33,7 +37,7 @@ export function IndustrialMapContainer({
       style: MAPCN_DARK_VECTOR_STYLE,
       center: [TN_MAP_CENTER.lng, TN_MAP_CENTER.lat],
       zoom: TN_MAP_CENTER.zoom,
-      pitch: 30, // 3D Tilt angle for dynamic mapcn visual depth
+      pitch: 30,
       attributionControl: true
     });
 
@@ -52,19 +56,20 @@ export function IndustrialMapContainer({
     };
   }, []);
 
+  // Hook for real satellite imagery blending (Esri raster tiles)
+  useSatelliteImagery(mapRef.current, isMapLoaded, activeMapMode);
+
   // Update Plant Markers on Map
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !isMapLoaded) return;
 
-    // Clear old markers
     markersRef.current.forEach((m) => m.remove());
     markersRef.current = [];
 
     plants.forEach((plant) => {
       if (!plant.lat || !plant.lng) return;
 
-      // Create Custom Animated HTML Pin (mapcn Marker)
       const el = document.createElement('div');
       el.className = 'custom-plant-marker';
 
@@ -76,7 +81,6 @@ export function IndustrialMapContainer({
         <div class="marker-pin-inner ${bandClass}"></div>
       `;
 
-      // Popup content
       const popupHtml = `
         <div class="map-popup-card">
           <div class="map-popup-header">
@@ -92,31 +96,38 @@ export function IndustrialMapContainer({
             <span>Cluster: <strong>${plant.cluster || '—'}</strong></span>
           </div>
           ${plant.reason ? `<div class="map-popup-reason">${plant.reason}</div>` : ''}
-          <button id="inspect-btn-${plant.id}" class="map-popup-btn">
-            Inspect Plant Telemetry
-          </button>
+          <div class="map-popup-actions">
+            <button id="inspect-btn-${plant.id}" class="map-popup-btn">
+              Inspect Telemetry
+            </button>
+            <button id="sat-btn-${plant.id}" class="map-popup-sat-btn">
+              🛰️ Satellite AI Analysis
+            </button>
+          </div>
         </div>
       `;
 
-      const popup = new maplibregl.Popup({ offset: 15, closeButton: true })
-        .setHTML(popupHtml);
+      const popup = new maplibregl.Popup({ offset: 15, closeButton: true }).setHTML(popupHtml);
 
       const marker = new maplibregl.Marker({ element: el })
         .setLngLat([plant.lng, plant.lat])
         .setPopup(popup)
         .addTo(map);
 
-      // Attach button listener inside popup
       popup.on('open', () => {
         const btn = document.getElementById(`inspect-btn-${plant.id}`);
         if (btn) {
           btn.onclick = () => onSelectPlant(plant.id);
         }
+        const satBtn = document.getElementById(`sat-btn-${plant.id}`);
+        if (satBtn) {
+          satBtn.onclick = () => onOpenSatelliteDrawer(plant.id);
+        }
       });
 
       markersRef.current.push(marker);
     });
-  }, [plants, isMapLoaded, onSelectPlant]);
+  }, [plants, isMapLoaded, onSelectPlant, onOpenSatelliteDrawer]);
 
   // Fly to selected plant when selection changes
   useEffect(() => {
@@ -127,7 +138,7 @@ export function IndustrialMapContainer({
     if (selected && selected.lat && selected.lng) {
       map.flyTo({
         center: [selected.lng, selected.lat],
-        zoom: 13,
+        zoom: 14,
         pitch: 45,
         speed: 1.2
       });
@@ -136,6 +147,10 @@ export function IndustrialMapContainer({
 
   return (
     <div className="industrial-map-wrapper" style={{ height }}>
+      <SatelliteLayerControl
+        activeMode={activeMapMode}
+        onChangeMode={setActiveMapMode}
+      />
       <div ref={mapContainerRef} className="mapcn-canvas-viewport" />
     </div>
   );

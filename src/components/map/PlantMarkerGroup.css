@@ -127,6 +127,13 @@
   line-height: 1.35;
 }
 
+.map-popup-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 6px;
+}
+
 .map-popup-btn {
   width: 100%;
   padding: 6px;
@@ -147,3 +154,27 @@
 .map-popup-btn:hover {
   background: linear-gradient(135deg, #0369a1, #075985);
 }
+
+.map-popup-sat-btn {
+  width: 100%;
+  padding: 6px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(126, 34, 206, 0.35));
+  color: #e9d5ff;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: all 0.2s;
+}
+
+.map-popup-sat-btn:hover {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.45), rgba(126, 34, 206, 0.55));
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+}
+

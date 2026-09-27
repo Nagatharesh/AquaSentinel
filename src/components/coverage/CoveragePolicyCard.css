@@ -1,0 +1,99 @@
+.coverage-policy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 900px) {
+  .coverage-policy-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.policy-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0;
+}
+
+.card-icon.red { color: #ef4444; }
+.card-icon.purple { color: #a855f7; }
+
+.unmonitored-box {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.unmonitored-chip {
+  font-size: 11px;
+  font-weight: 700;
+  color: #fca5a5;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.unmonitored-desc {
+  font-size: 11px;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.impact-display {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.impact-number {
+  font-size: 24px;
+  font-weight: 800;
+  color: #c084fc;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.impact-tag {
+  font-size: 11px;
+  font-weight: 600;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.policy-quote {
+  font-size: 11px;
+  line-height: 1.5;
+  color: #94a3b8;
+  background: rgba(30, 41, 59, 0.5);
+  padding: 10px;
+  border-radius: 8px;
+  border-left: 3px solid #0284c7;
+  margin: 0;
+}
+
+.quote-icon {
+  color: #38bdf8;
+  margin-right: 4px;
+}

@@ -18,6 +18,31 @@ body.collapsed .sidebar {
   width: var(--sb-w-collapsed);
 }
 
+/* Hide text labels completely when sidebar is collapsed to prevent overflow */
+body.collapsed .sidebar .lbl {
+  display: none !important;
+}
+
+body.collapsed .sb-head {
+  padding: 0;
+  justify-content: center;
+}
+
+body.collapsed .sb-nav {
+  padding: 12px 6px;
+}
+
+body.collapsed .nav-btn {
+  justify-content: center;
+  padding: 10px 0;
+  gap: 0;
+}
+
+body.collapsed .sb-foot {
+  padding: 14px 0;
+  justify-content: center;
+}
+
 .sb-head {
   display: flex;
   align-items: center;

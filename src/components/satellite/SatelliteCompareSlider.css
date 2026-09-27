@@ -1,0 +1,146 @@
+.satellite-compare-wrapper {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.satellite-compare-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.satellite-compare-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.compare-icon {
+  color: #38bdf8;
+}
+
+.satellite-overlay-tag {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.satellite-compare-viewport {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  user-select: none;
+  background: #020617;
+}
+
+.compare-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: clip-path 0.05s linear;
+}
+
+.current-img {
+  z-index: 2;
+}
+
+.baseline-img {
+  z-index: 1;
+}
+
+.compare-divider-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  z-index: 4;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.divider-line {
+  width: 100%;
+  height: 100%;
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+}
+
+.divider-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #0ea5e9;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: bold;
+  box-shadow: 0 0 12px rgba(14, 165, 233, 0.8);
+}
+
+.compare-badge {
+  position: absolute;
+  bottom: 8px;
+  z-index: 5;
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(6px);
+  color: #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.baseline-badge {
+  left: 8px;
+}
+
+.current-badge {
+  right: 8px;
+}
+
+.compare-range-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 6;
+}
+
+.compare-slider-footer-hint {
+  font-size: 11px;
+  color: #94a3b8;
+  text-align: center;
+  margin-top: 8px;
+  font-style: italic;
+}

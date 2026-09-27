@@ -1,0 +1,246 @@
+.district-coverage-container {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.district-grid-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.header-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0;
+}
+
+.section-subtitle {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.district-filter-tabs {
+  display: flex;
+  gap: 6px;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tab-btn:hover {
+  background: rgba(51, 65, 85, 0.8);
+  color: #ffffff;
+}
+
+.tab-btn.active {
+  background: rgba(14, 165, 233, 0.2);
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+.district-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 1100px) {
+  .district-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .district-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.district-card {
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.2s;
+}
+
+.district-card:hover {
+  background: rgba(30, 41, 59, 0.8);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.district-card.pending {
+  border-style: dashed;
+  opacity: 0.85;
+}
+
+.district-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.district-name-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.district-pin-icon {
+  color: #38bdf8;
+}
+
+.district-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.status-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.status-badge.covered {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-badge.pending {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.basin-tag {
+  font-size: 11px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.5);
+  padding: 4px 8px;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.district-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+.stat-row strong {
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.compliant-text {
+  color: #34d399 !important;
+}
+
+.missing-text {
+  color: #fbbf24 !important;
+}
+
+.progress-bar-wrap {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.district-progress-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.district-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #0284c7, #10b981);
+  border-radius: 3px;
+}
+
+.pending-roadmap-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pending-target {
+  font-size: 11px;
+  font-weight: 700;
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  padding: 4px 8px;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.hub-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.hub-chip {
+  font-size: 10px;
+  color: #94a3b8;
+  background: rgba(15, 23, 42, 0.6);
+  padding: 3px 6px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

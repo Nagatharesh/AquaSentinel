@@ -8,11 +8,10 @@ import { getPlantById } from '../../data/extendedPlantsData';
 import { TodayPage } from './TodayPage';
 import { InspectionListPage } from './InspectionListPage';
 import { MapPage } from './MapPage';
+import { SatellitePage } from './SatellitePage';
 import { FindingsPage } from './FindingsPage';
 import { PlantsPage } from './PlantsPage';
 import { ClustersPage } from './ClustersPage';
-import { VendorsPage } from './VendorsPage';
-import { CoveragePage } from './CoveragePage';
 
 import '../../assets/styles/jalsatya.css';
 import './AquaConsoleLayout.css';
@@ -31,11 +30,10 @@ export function AquaConsoleLayout() {
     today: { title: 'Inspection Itinerary', sub: 'Actionable field inspection schedule for tomorrow morning, ordered by risk.' },
     list: { title: 'Inspection list', sub: 'Every plant in the district, ranked by what is worth your time.' },
     map: { title: 'Spatial Industrial Grid', sub: 'Geographic surveillance map of facilities across river basins and industrial hubs.' },
+    satellite: { title: 'Orbital Satellite Surveillance & Officer AI Analysis', sub: 'Real Sentinel-2 multi-spectral passes, thermal effluent tracking, and statutory enforcement briefs.' },
     find: { title: 'Findings', sub: 'Notices issued, replies received, and what is still open.' },
     plant: { title: 'Plants', sub: 'Every registered unit and what its data looks like.' },
-    cluster: { title: 'Clusters', sub: "Common effluent plants, and whether members' reports add up." },
-    vendor: { title: 'Monitoring agencies', sub: 'The firms that run monitoring equipment, judged across all clients.' },
-    cov: { title: 'Coverage', sub: 'What records we can check a plant against, and what is missing.' }
+    cluster: { title: 'Clusters', sub: "Common effluent plants, and whether members' reports add up." }
   };
 
   const currentInfo = pagesInfo[activeTab] || pagesInfo.today;
@@ -61,11 +59,10 @@ export function AquaConsoleLayout() {
         )}
         {activeTab === 'list' && <InspectionListPage onOpenPlant={(id) => setSelectedPlantId(id)} />}
         {activeTab === 'map' && <MapPage onOpenPlant={(id) => setSelectedPlantId(id)} />}
+        {activeTab === 'satellite' && <SatellitePage onOpenPlant={(id) => setSelectedPlantId(id)} />}
         {activeTab === 'find' && <FindingsPage onOpenPlant={(id) => setSelectedPlantId(id)} />}
         {activeTab === 'plant' && <PlantsPage onOpenPlant={(id) => setSelectedPlantId(id)} />}
         {activeTab === 'cluster' && <ClustersPage onNavigateTab={(tab) => setActiveTab(tab)} />}
-        {activeTab === 'vendor' && <VendorsPage />}
-        {activeTab === 'cov' && <CoveragePage />}
       </main>
 
       <PlantDrawer 
@@ -76,3 +73,5 @@ export function AquaConsoleLayout() {
     </div>
   );
 }
+
+export default AquaConsoleLayout;
