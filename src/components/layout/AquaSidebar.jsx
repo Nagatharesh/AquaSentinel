@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   Calendar, ListFilter, FileCheck, Building2, 
-  Network, Menu, Map, Satellite 
+  Network, Menu, Map, Satellite, FileText 
 } from 'lucide-react';
 import './AquaSidebar.css';
 
@@ -12,6 +12,7 @@ export function AquaSidebar({ activeTab, setActiveTab, isCollapsed, onToggleColl
     { k: 'map', label: 'Spatial Map', icon: <Map size={18} /> },
     { k: 'satellite', label: 'Satellite Analysis', icon: <Satellite size={18} />, count: 3 },
     { k: 'find', label: 'Findings', icon: <FileCheck size={18} />, count: 9 },
+    { k: 'reports', label: 'Reports', icon: <FileText size={18} />, count: 4 },
     { k: 'plant', label: 'Plants', icon: <Building2 size={18} /> },
     { k: 'cluster', label: 'Clusters', icon: <Network size={18} />, count: 1 }
   ];
