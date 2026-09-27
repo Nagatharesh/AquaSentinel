@@ -15,6 +15,93 @@ const defaultEvidence = [
 ];
 
 export const EXTENDED_PLANTS_DATA = [
+  // Major Tamil Nadu Thermal & Captive Power Plants
+  {
+    id: "TN-MT-0001",
+    name: "Mettur Thermal Power Station (MTPS)",
+    town: "Mettur",
+    sector: "Thermal Power & Utility",
+    cluster: "Mettur Industrial Complex",
+    vendor: "Aquatrace Systems",
+    score: 95,
+    band: "red",
+    harm: "Very High",
+    motive: "₹82 L/yr",
+    uptime: 68,
+    param: "Ash Sludge, Temperature, pH",
+    reason: "Ash pond overflow telemetry constant while thermal load peaked by 45%.",
+    why: "Cooling discharge temperature sensors remained fixed at 28.5°C despite 600MW load swing.",
+    evid: [
+      "Ash slurry discharge constant for 2,100 consecutive readings",
+      "TANGEDCO grid output logs confirm 600MW generation peak during sensor flatline"
+    ],
+    check: defaultAuditChecks,
+    tier: "Certified",
+    tierNote: "Primary thermal power grid unit"
+  },
+  {
+    id: "TN-TT-0002",
+    name: "Tuticorin Thermal Power Station (TTPS)",
+    town: "Tuticorin",
+    sector: "Thermal Power & Utility",
+    cluster: "Thoothukudi Industrial Belt",
+    vendor: "Metroline Envirotech",
+    score: 92,
+    band: "red",
+    harm: "Very High",
+    motive: "₹94 L/yr",
+    uptime: 72,
+    param: "Heavy Metals, TSS",
+    reason: "Effluent outfall temperature telemetry drops during peak generation cycles.",
+    why: "Desalination concentrate outfall salinity matches baseline seawater.",
+    evid: [
+      "Outfall salinity variation < 0.1 PSU over 14 days",
+      "Coal ash decant pond level sensors offline during heavy rain"
+    ],
+    check: defaultAuditChecks,
+    tier: "Certified",
+    tierNote: "Coastal power generation node"
+  },
+  {
+    id: "TN-CH-0003",
+    name: "North Chennai Thermal Power Station (NCTPS)",
+    town: "Manali",
+    sector: "Thermal Power & Utility",
+    cluster: "Ennore-Manali Complex",
+    vendor: "Hydroscan India",
+    score: 76,
+    band: "amber",
+    harm: "High",
+    motive: "₹45 L/yr",
+    uptime: 86,
+    param: "Fly Ash, Temp",
+    reason: "Cooling water outfall delta T clusters 0.2°C below legal regulatory cap.",
+    why: "Statistical truncation observed near outfall thermal limit.",
+    evid: defaultEvidence,
+    check: defaultAuditChecks,
+    tier: "Statistical",
+    tierNote: "Metro power station"
+  },
+  {
+    id: "TN-CD-0005",
+    name: "Cuddalore SIPCOT Thermal Power Unit",
+    town: "Cuddalore",
+    sector: "Thermal Power & Utility",
+    cluster: "Cuddalore SIPCOT Phase-1",
+    vendor: "Aquatrace Systems",
+    score: 89,
+    band: "red",
+    harm: "High",
+    motive: "₹56 L/yr",
+    uptime: 71,
+    param: "TDS, Heavy Metals",
+    reason: "ETP power draw fell 18% while reported heavy metal removal improved.",
+    why: "Thermodynamic energy balance violation on ash treatment plant.",
+    evid: defaultEvidence,
+    check: defaultAuditChecks,
+    tier: "Certified",
+    tierNote: "SIPCOT coastal power plant"
+  },
   // Tiruppur Cluster (Textile & Dyeing CETPs)
   {
     id: "TN-TP-0088",

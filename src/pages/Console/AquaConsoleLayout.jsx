@@ -7,6 +7,7 @@ import { getPlantById } from '../../data/extendedPlantsData';
 
 import { TodayPage } from './TodayPage';
 import { InspectionListPage } from './InspectionListPage';
+import { MapPage } from './MapPage';
 import { FindingsPage } from './FindingsPage';
 import { PlantsPage } from './PlantsPage';
 import { ClustersPage } from './ClustersPage';
@@ -29,6 +30,7 @@ export function AquaConsoleLayout() {
   const pagesInfo = {
     today: { title: 'Inspection Itinerary', sub: 'Actionable field inspection schedule for tomorrow morning, ordered by risk.' },
     list: { title: 'Inspection list', sub: 'Every plant in the district, ranked by what is worth your time.' },
+    map: { title: 'Spatial Industrial Grid', sub: 'Geographic surveillance map of facilities across river basins and industrial hubs.' },
     find: { title: 'Findings', sub: 'Notices issued, replies received, and what is still open.' },
     plant: { title: 'Plants', sub: 'Every registered unit and what its data looks like.' },
     cluster: { title: 'Clusters', sub: "Common effluent plants, and whether members' reports add up." },
@@ -58,6 +60,7 @@ export function AquaConsoleLayout() {
           />
         )}
         {activeTab === 'list' && <InspectionListPage onOpenPlant={(id) => setSelectedPlantId(id)} />}
+        {activeTab === 'map' && <MapPage onOpenPlant={(id) => setSelectedPlantId(id)} />}
         {activeTab === 'find' && <FindingsPage onOpenPlant={(id) => setSelectedPlantId(id)} />}
         {activeTab === 'plant' && <PlantsPage onOpenPlant={(id) => setSelectedPlantId(id)} />}
         {activeTab === 'cluster' && <ClustersPage onNavigateTab={(tab) => setActiveTab(tab)} />}

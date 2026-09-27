@@ -1,5 +1,6 @@
 import React from 'react';
 import { TelemetryChart } from './TelemetryChart';
+import { MiniPlantMap } from '../map/MiniPlantMap';
 import './PlantDrawer.css';
 
 export function PlantDrawer({ plant, isOpen, onClose }) {
@@ -39,6 +40,8 @@ export function PlantDrawer({ plant, isOpen, onClose }) {
               <p>{plant.why}</p>
             </div>
           </div>
+
+          <MiniPlantMap plant={plant} />
 
           <h3 className="sec">WHAT THE READING LOOKS LIKE</h3>
           <TelemetryChart plantId={plant.id} isFlat={plant.band === 'red'} param={plant.param} />
